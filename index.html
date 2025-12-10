@@ -6,14 +6,12 @@
 <title>GIGAMON</title>
 
 <style>
-/* Load the custom font */
 @font-face {
   font-family: 'VampireWars';
   src: url('Vampire Wars.ttf') format('truetype');
   font-weight: normal;
 }
 
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -35,14 +33,12 @@ header {
   align-items: center;
   color: #000;
 }
-
 .logo {
   font-size: 45px;
   font-weight: bold;
   letter-spacing: 3px;
 }
 
-/* Social Icons */
 .social-icons {
   display: flex;
   gap: 22px;
@@ -57,8 +53,8 @@ header {
   transform: rotate(-6deg) scale(1.15);
 }
 
-/* CTA Buttons */
-a.buy-btn, a.explore-btn {
+/* Buttons */
+a.buy-btn, .ca-btn {
   display: inline-block;
   background: #000;
   color: #ff7b00;
@@ -70,45 +66,29 @@ a.buy-btn, a.explore-btn {
   box-shadow: 4px 4px 0px #000;
   transition: transform 0.18s ease;
 }
-a.buy-btn:hover, a.explore-btn:hover {
+a.buy-btn:hover, .ca-btn:hover {
   transform: translateY(-4px) rotate(-3deg);
 }
 
-/* Hero */
+/* HERO */
 .hero {
   width: 100%;
   margin-top: 40px;
+  padding: 0 3%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 3%;
-  position: relative;
+  align-items: center;
 }
 
-.char-left {
-  width: 50vw;
-  max-width: 700px;
-  align-self: flex-end;
-  object-fit: contain;
-  position: relative;
-  left: -2vw;
-}
-
+.char-left,
 .char-right {
-  width: 42vw;
-  max-width: 620px;
-  align-self: flex-end;
-  object-fit: contain;
-  position: relative;
-  right: -2vw;
+  width: 38vw;
+  max-width: 450px;
 }
 
-/* Center Title + Button */
 .hero-inner {
+  flex: 1;
   text-align: center;
-  margin-bottom: 20px;
-  align-self: center;
-  transform: translateY(-10%);
 }
 
 .title {
@@ -116,66 +96,57 @@ a.buy-btn:hover, a.explore-btn:hover {
   font-weight: bold;
   color: #000;
   text-shadow: 5px 5px 0px #00000055;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
-/* Smooth scrolling marquee */
+/* Copy success feedback */
+.copy-success {
+  font-size: 18px;
+  margin-top: 10px;
+  display: none;
+}
+
+/* Marquee */
 .marquee {
   width: 100%;
   position: absolute;
   bottom: 0;
   overflow: hidden;
-  white-space: nowrap;
   display: flex;
+  white-space: nowrap;
 }
-
 .marquee span {
   font-size: 32px;
   padding: 18px 0;
-  display: inline-block;
-  animation: scrollText 24s linear infinite; /* Speed pelan & smooth */
-  color: #000;
+  animation: scrollText 12s linear infinite,
+             pulse 2.2s infinite ease-in-out; /* subtle animation */
   flex-shrink: 0;
 }
 
-/* Seamless scrolling animation */
 @keyframes scrollText {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* Mobile Responsive */
-@media(max-width: 900px){
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* RESPONSIVE */
+@media(max-width: 880px) {
+  .char-left, .char-right {
+    display: none; /* Hide characters on mobile */
+  }
   .title {
-    font-size: 18vw;
+    font-size: 70px;
   }
   .hero {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    justify-content: center;
+    text-align: center;
   }
-  .char-left {
-    width: 80vw;
-    max-width: unset;
-    position: static;
-  }
-
-  /* Hide bottom character on mobile */
-  .char-right {
-    display: none;
-  }
-
-  .hero-inner {
-    order: -1;
-    margin-bottom: 10px;
-    transform: translateY(0);
-  }
-  header {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .marquee span {
-    font-size: 22px;
+  .ca-btn {
+    font-size: 20px;
   }
 }
 </style>
@@ -183,35 +154,51 @@ a.buy-btn:hover, a.explore-btn:hover {
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo">GIGAMON</div>
 
   <div class="social-icons">
-    <a href="https://x.com" title="X">X</a>
-    <a href="https://t.me" title="TG">TG</a>
+    <a href="https://x.com" target="_blank">X</a>
+    <a href="https://t.me" target="_blank">TG</a>
   </div>
 
-  <a href="https://nad.fun" class="buy-btn">BUY</a>
+  <a href="https://nad.fun" class="buy-btn" target="_blank">BUY</a>
 </header>
 
-<!-- HERO -->
 <main class="hero">
-  <img class="char-left" src="gigamon-front.png" alt="left-character">
+
+  <img class="char-left" src="gigamon-front.png" alt="char-left">
 
   <div class="hero-inner">
     <h1 class="title">GIGAMON</h1>
-    <a href="#" class="explore-btn">CA: ------</a>
+    
+    <button class="ca-btn" id="copyBtn">CA: -------</button>
+    <div class="copy-success" id="copyMsg">Copied!</div>
   </div>
 
-  <img class="char-right" src="gigamon-back.png" alt="right-character">
+  <img class="char-right" src="gigamon-back.png" alt="char-right">
+
 </main>
 
-<!-- MARQUEE -->
 <div class="marquee">
   <span>TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD • </span>
   <span>TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD • </span>
 </div>
+
+
+<!-- Copy CA Script -->
+<script>
+const copyBtn = document.getElementById("copyBtn");
+const copyMsg = document.getElementById("copyMsg");
+
+copyBtn.addEventListener("click", () => {
+  const caText = "-----PUT-YOUR-CA-HERE-----"; // EDIT DI SINI!
+  navigator.clipboard.writeText(caText).then(() => {
+    copyMsg.style.display = "block";
+    setTimeout(() => copyMsg.style.display = "none", 1500);
+  });
+});
+</script>
 
 </body>
 </html>
