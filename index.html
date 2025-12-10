@@ -43,7 +43,7 @@ header {
   letter-spacing: 3px;
 }
 
-/* Social Icons - Centered */
+/* Social Icons */
 .social-icons {
   display: flex;
   gap: 22px;
@@ -81,18 +81,33 @@ a.buy-btn:hover, a.explore-btn:hover {
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 0 3%;
 }
 
-.char-left,
+/* Bigger left character & stick bottom-left */
+.char-left {
+  width: 50vw;
+  max-width: 700px;
+  align-self: flex-end;
+  object-fit: contain;
+  position: relative;
+  left: -2vw;
+}
+
+/* Right character matched bottom alignment */
 .char-right {
-  width: 38vw;
-  max-width: 450px;
+  width: 42vw;
+  max-width: 620px;
+  align-self: flex-end;
+  object-fit: contain;
+  position: relative;
+  right: -2vw;
 }
 
 .hero-inner {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .title {
@@ -123,6 +138,35 @@ a.buy-btn:hover, a.explore-btn:hover {
 @keyframes scrollText {
   from { transform: translateX(100%); }
   to { transform: translateX(-100%); }
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media(max-width: 900px){
+  .title {
+    font-size: 18vw;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .char-left,
+  .char-right {
+    width: 80vw;
+    max-width: unset;
+    position: static;
+  }
+  .hero-inner {
+    order: -1;
+    margin-bottom: 10px;
+  }
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .marquee span {
+    font-size: 22px;
+  }
 }
 </style>
 </head>
