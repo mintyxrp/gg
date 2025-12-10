@@ -137,6 +137,31 @@ button:hover {
     margin: 20px 0;
   }
 }
+
+/* Fix: Bigger left character only + prevent layout shift */
+body {
+  overflow-x: hidden;
+}
+.hero img.char-left {
+  width: 48vw;
+  max-width: 600px;
+  transform: translateX(-3vw);
+}
+.hero img.char-right {
+  width: 36vw;
+  max-width: 460px;
+}
+@media(max-width:768px){
+  .hero img.char-left {
+    width: 65vw;
+    max-width: 420px;
+    transform: translateX(0);
+  }
+  .hero img.char-right {
+    width: 52vw;
+    max-width: 350px;
+  }
+}
 </style>
 </head>
 <body>
