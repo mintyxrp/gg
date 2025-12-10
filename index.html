@@ -1,162 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GIGAMON</title>
-
 <style>
-/* Load the custom font */
 @font-face {
-  font-family: 'VampireWars';
+  font-family: 'Vampire';
   src: url('Vampire Wars.ttf') format('truetype');
-  font-weight: normal;
 }
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #ff7b00;
-  font-family: 'VampireWars', sans-serif;
+  margin: 0;
+  background: #ff7a00;
+  font-family: 'Vampire', sans-serif;
   overflow-x: hidden;
 }
-
-/* Header */
 header {
   width: 100%;
-  padding: 15px 4%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #000;
-  font-family: 'VampireWars';
+  justify-content: center;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
-
-.logo {
-  font-size: 45px;
-  font-weight: bold;
-  letter-spacing: 3px;
-}
-
-/* Social Icons - Centered */
 .social-icons {
   display: flex;
-  gap: 22px;
+  gap: 20px;
 }
-.social-icons a {
-  font-size: 26px;
-  text-decoration: none;
-  color: #000;
-  transition: transform 0.2s ease;
+.social-icons img.social-icon {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.35));
+  transition: transform 0.15s ease-in-out;
+  cursor: pointer;
 }
-.social-icons a:hover {
-  transform: rotate(-6deg) scale(1.15);
+.social-icons img.social-icon:hover {
+  transform: rotate(-4deg) scale(1.12);
 }
-
-/* CTA Buttons */
-a.buy-btn, a.explore-btn {
-  display: inline-block;
-  background: #000;
-  color: #ff7b00;
-  padding: 14px 32px;
-  font-size: 22px;
-  text-decoration: none;
-  border-radius: 12px;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0px #000;
-  transition: transform 0.18s ease;
-}
-a.buy-btn:hover, a.explore-btn:hover {
-  transform: translateY(-4px) rotate(-3deg);
-}
-
-/* Hero */
 .hero {
-  width: 100%;
-  margin-top: 40px;
+  margin-top: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3%;
+  padding: 0 5vw;
 }
-
-.char-left,
-.char-right {
-  width: 38vw;
-  max-width: 450px;
-}
-
-.hero-inner {
-  text-align: center;
-}
-
-.title {
-  font-size: 115px;
-  font-weight: bold;
+.hero-text {
+  max-width: 40%;
   color: #000;
-  text-shadow: 5px 5px 0px #00000055;
-  margin-bottom: 30px;
 }
-
-/* Scrolling Text Bottom */
+.hero-text h1 {
+  font-size: 4.8rem;
+  margin: 0;
+}
+.hero-text p {
+  font-size: 1.4rem;
+  margin-top: 15px;
+}
+.btn-group {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+button {
+  padding: 14px 28px;
+  background: #111;
+  border: 4px solid #000;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.15s;
+  font-family: 'Vampire';
+  color: #fff;
+}
+button:hover {
+  transform: rotate(-3deg) scale(1.08);
+}
+.hero-img {
+  display: flex;
+  gap: 20px;
+}
+.hero-img img {
+  width: 300px;
+  filter: drop-shadow(0px 8px 10px rgba(0,0,0,0.4));
+  transition: transform .2s;
+}
+.hero-img img:hover {
+  transform: translateY(-6px) rotate(1.5deg);
+}
 .marquee {
+  margin-top: 60px;
   width: 100%;
-  position: absolute;
-  bottom: 0;
   white-space: nowrap;
   overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  background: #111;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 1.2rem;
 }
-
 .marquee span {
   display: inline-block;
-  font-size: 32px;
-  padding: 18px 0;
-  animation: scrollText 18s linear infinite;
-  color: #000;
+  padding-left: 100%;
+  animation: scrollTxt 18s linear infinite;
+}
+@keyframes scrollTxt {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-@keyframes scrollText {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
+/* Responsive hero sizing updated */
+.hero {
+  justify-content: center;
+  padding: 0 10vw;
+}
+.hero img.char-left,
+.hero img.char-right {
+  width: 45vw;
+  max-width: 550px;
+}
+@media (max-width: 1200px) {
+  .hero img.char-left,
+  .hero img.char-right {
+    width: 50vw;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 0 5vw;
+  }
+  .hero img.char-left,
+  .hero img.char-right {
+    width: 70vw;
+    max-width: 400px;
+    margin: 20px 0;
+  }
 }
 </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
 <header>
-  <div class="logo">GIGAMON</div>
-
   <div class="social-icons">
-    <a href="https://x.com" title="X">X</a>
-    <a href="https://t.me" title="TG">TG</a>
+    <a href="#" title="X"><img src="x-logo.png" class="social-icon"></a>
+    <a href="#" title="Telegram"><img src="telegram-logo.png" class="social-icon"></a>
   </div>
-
-  <a href="https://nad.fun" class="buy-btn">BUY</a>
 </header>
-
-<!-- HERO -->
-<main class="hero">
-  <img class="char-left" src="gigamon-front.png" alt="left-character">
-
-  <div class="hero-inner">
-    <h1 class="title">GIGAMON</h1>
-    <a href="https://example.com/ca" class="explore-btn">CA: ------</a>
+<section class="hero">
+  <div class="hero-text">
+    <h1>GIGAMON</h1>
+    <p>TURNING MEME INTO PURE CULTURE<br> ON MONAD</p>
+    <div class="btn-group">
+      <button onclick="location.href='#'">BUY</button>
+      <button onclick="location.href='#'">CA: ------</button>
+    </div>
   </div>
-
-  <img class="char-right" src="gigamon-back.png" alt="right-character">
-</main>
-
-<!-- MARQUEE TEXT -->
-<div class="marquee">
-  <span>TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD • </span>
-</div>
-
+  <div class="hero-img">
+    <img src="gigamon-front.png">
+    <img src="gigamon-back.png">
+  </div>
+</section>
+<div class="marquee"><span>TURNING MEME INTO PURE CULTURE ON MONAD — TURNING MEME INTO PURE CULTURE ON MONAD — </span></div>
 </body>
 </html>
