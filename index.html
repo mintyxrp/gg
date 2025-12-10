@@ -83,9 +83,10 @@ a.buy-btn:hover, a.explore-btn:hover {
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 3%;
+  position: relative;
 }
 
-/* Bigger left character & stick bottom-left */
+/* Characters */
 .char-left {
   width: 50vw;
   max-width: 700px;
@@ -95,7 +96,6 @@ a.buy-btn:hover, a.explore-btn:hover {
   left: -2vw;
 }
 
-/* Right character matched bottom alignment */
 .char-right {
   width: 42vw;
   max-width: 620px;
@@ -105,9 +105,12 @@ a.buy-btn:hover, a.explore-btn:hover {
   right: -2vw;
 }
 
+/* 🎯 FIX : Center Position Title + Button */
 .hero-inner {
   text-align: center;
   margin-bottom: 20px;
+  align-self: center;         /* Center antara kiri–kanan */
+  transform: translateY(-10%); /* Naikkan biar seimbang */
 }
 
 .title {
@@ -118,7 +121,7 @@ a.buy-btn:hover, a.explore-btn:hover {
   margin-bottom: 30px;
 }
 
-/* Scrolling Text Bottom */
+/* Marquee */
 .marquee {
   width: 100%;
   position: absolute;
@@ -140,7 +143,7 @@ a.buy-btn:hover, a.explore-btn:hover {
   to { transform: translateX(-100%); }
 }
 
-/* 📱 MOBILE RESPONSIVE */
+/* Mobile Responsive */
 @media(max-width: 900px){
   .title {
     font-size: 18vw;
@@ -159,6 +162,7 @@ a.buy-btn:hover, a.explore-btn:hover {
   .hero-inner {
     order: -1;
     margin-bottom: 10px;
+    transform: translateY(0); /* reset on mobile */
   }
   header {
     flex-direction: column;
@@ -197,9 +201,9 @@ a.buy-btn:hover, a.explore-btn:hover {
   <img class="char-right" src="gigamon-back.png" alt="right-character">
 </main>
 
-<!-- MARQUEE TEXT -->
+<!-- MARQUEE -->
 <div class="marquee">
-  <span>TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD •</span>
+  <span>TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD • </span>
 </div>
 
 </body>
