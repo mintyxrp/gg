@@ -85,7 +85,6 @@ a.buy-btn:hover, a.explore-btn:hover {
   position: relative;
 }
 
-/* Characters */
 .char-left {
   width: 50vw;
   max-width: 700px;
@@ -120,26 +119,29 @@ a.buy-btn:hover, a.explore-btn:hover {
   margin-bottom: 30px;
 }
 
-/* Marquee */
+/* Smooth scrolling marquee */
 .marquee {
   width: 100%;
   position: absolute;
   bottom: 0;
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
+  display: flex;
 }
 
 .marquee span {
-  display: inline-block;
   font-size: 32px;
   padding: 18px 0;
-  animation: scrollText 18s linear infinite;
+  display: inline-block;
+  animation: scrollText 16s linear infinite; /* Speed pelan & smooth */
   color: #000;
+  flex-shrink: 0;
 }
 
+/* Seamless scrolling animation */
 @keyframes scrollText {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Mobile Responsive */
@@ -158,7 +160,7 @@ a.buy-btn:hover, a.explore-btn:hover {
     position: static;
   }
 
-  /* Hide bottom-sitting character */
+  /* Hide bottom character on mobile */
   .char-right {
     display: none;
   }
@@ -207,6 +209,7 @@ a.buy-btn:hover, a.explore-btn:hover {
 
 <!-- MARQUEE -->
 <div class="marquee">
+  <span>TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD • </span>
   <span>TURNING MEME INTO PURE CULTURE ON MONAD • TURNING MEME INTO PURE CULTURE ON MONAD • </span>
 </div>
 
